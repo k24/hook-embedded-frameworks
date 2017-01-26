@@ -12,7 +12,7 @@ Support embedded frameworks in native Titanium modules and Hyperloop.
         * Add the above to the `hyperloop.ios.xcodebuild.flags` object of your appc.js
         * Place the `ti.dynamiclib.js` file in `<your-project-root>/plugins/ti.dynamiclib/hooks`
         * Add the plugin to your tiapp: `<plugin>ti.dynamiclib</plugin>`
-4. Some frameworks include Simulator architectures ("fat libraries"). Those frameworks usually provide a script to strip the unused frameworks for distribution, e.g. `strip-framework.sh`. If you use such a framework, adjust the path of the variable `scriptPath`, otherwise `null` it to skip the build script phase.
+4. Some frameworks include Simulator architectures ("fat libraries"). Those frameworks usually provide a script to strip the unused architectures for distribution, e.g. `strip-framework.sh`. If you use such a framework, adjust the path of the variable `scriptPath`, otherwise `null` it to skip the build script phase. An example of this file is included in this repo (© Realm).
 5. That's it! You can check an example integration in the Ti.Flic module (https://github.com/hansemannn/ti.flic)
 
 ### License
@@ -20,8 +20,7 @@ Apache 2.0
 
 ### Legal
 This module is Copyright (c) 2016 by Axway. All Rights Reserved. Usage of this module is subject 
-to the Terms of Service agreement with Axway, Inc.
-
+to the Terms of Service agreement with Axway, Inc. 
 
 ### Contributing
-Code contributions are greatly appreciated, please submit a new [pull request](https://github.com/appcelerator/APSKeychainWrapper/pull/new/master)!
+Code contributions are greatly appreciated, please submit a new [Pull Request](https://github.com/appcelerator/APSKeychainWrapper/pull/new/master)!
