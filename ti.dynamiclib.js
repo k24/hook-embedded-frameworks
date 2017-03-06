@@ -41,7 +41,7 @@ exports.init = function (logger, config, cli, appc) {
 				};
 			}
 			addLibrary(builder, cli, xobjs, frameworkPaths);
-			addScriptBuildPhase(scriptPath);
+			addScriptBuildPhase(builder, xobjs, scriptPath);
 		}
 	});
 };
@@ -75,7 +75,7 @@ function addLibrary(builder, cli, xobjs, frameworkPaths) {
 	});
 }
 
-function addScriptBuildPhase(scriptPath) {
+function addScriptBuildPhase(builder, xobjs, scriptPath) {
 	if (!scriptPath) return;
 	
 	var script_uuid = builder.generateXcodeUuid();
