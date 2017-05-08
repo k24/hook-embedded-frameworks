@@ -1,6 +1,10 @@
-Array.prototype.last = Array.prototype.last || function () {
-	return this[this.length - 1];
-};
+if (!Array.prototype.last) {
+  Object.defineProperty(Array.prototype, 'last', {
+    value: function() {
+      return this[this.length - 1];
+    }
+  });
+}
 
 exports.id = 'ti.dynamiclib';
 exports.cliVersion = '>=3.2';
