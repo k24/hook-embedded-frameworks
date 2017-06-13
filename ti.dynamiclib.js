@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 if (!Array.prototype.last) {
   Object.defineProperty(Array.prototype, 'last', {
     value: function() {
@@ -76,6 +78,12 @@ function addLibrary(builder, cli, xobjs, frameworkPaths) {
 		createPBXFrameworksBuildPhase(xobjs, frameword_uuid, framework_name);
 		createPBXGroup(xobjs, fileRef_uuid, framework_name);
 		createPBXNativeTarget(xobjs, embeddedFrameword_copy_uuid);
+
+		// chmod +x <Name>.framework/<Name> to copy swift libs
+		// Refer https://github.com/apple/swift/blob/swift-4.0-branch/tools/swift-stdlib-tool/swift-stdlib-tool.mm#L1012-L1028
+		// The path is relative to your project root.
+		var exec_file = framework_path.replace('../../', './') + '/' + framework_name.split('.')[0];
+		fs.chmodSync(exec_file, '755');
 	});
 }
 
